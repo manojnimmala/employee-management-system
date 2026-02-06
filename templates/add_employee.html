@@ -1,0 +1,22 @@
+<h2>Add Employee</h2>
+
+{% if error %}
+<p style="color:red;">{{ error }}</p>
+{% endif %}
+
+<form method="POST">
+    <input name="name" placeholder="Name" required><br><br>
+    <input name="email" placeholder="Email" required><br><br>
+    <input name="department" placeholder="Department" required><br><br>
+    <input type="number" name="salary" placeholder="Salary" required><br><br>
+    <input type="date" name="joining_date" required><br><br>
+
+    <select name="status">
+        <option>Active</option>
+        <option>Inactive</option>
+    </select><br><br>
+
+    <button>Add</button>
+</form>
+
+<a href="/dashboard">Back</a>

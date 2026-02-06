@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employees</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Employees</h2>
+
+    <table>
+        <tr>
+            <th>Name</th><th>Email</th><th>Department</th>
+            <th>Salary</th><th>Date</th><th>Status</th><th>Action</th>
+        </tr>
+
+        {% for e in employees %}
+        <tr>
+            <td>{{ e.name }}</td>
+            <td>{{ e.email }}</td>
+            <td>{{ e.department }}</td>
+            <td>{{ e.salary }}</td>
+            <td>{{ e.joining_date }}</td>
+            <td>{{ e.status }}</td>
+            <td>
+                <a href="/edit/{{ e.id }}">Edit</a> |
+                <a href="/delete/{{ e.id }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="/dashboard">Back</a>
+</div>
+
+</body>
+</html>

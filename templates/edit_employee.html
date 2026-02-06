@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employees</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class= "container">
+        <h2>Edit Employee</h2>
+
+        {% if error %}
+        <p style="color:red;">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST">
+            <input name="name" value="{{ emp.name }}" required><br><br>
+            <input name="email" value="{{ emp.email }}" required><br><br>
+            <input name="department" value="{{ emp.department }}" required><br><br>
+            <input name="salary" value="{{ emp.salary }}" required><br><br>
+            <input type="date" name="joining_date" value="{{ emp.joining_date }}" required><br><br>
+
+            <select name="status">
+                <option {% if emp.status=="Active" %}selected{% endif %}>Active</option>
+                <option {% if emp.status=="Inactive" %}selected{% endif %}>Inactive</option>
+            </select><br><br>
+
+            <button>Update</button>
+        </form>
+
+        <a href="/employees">Back</a>
+    </div>
+
+</body>
+</html>
